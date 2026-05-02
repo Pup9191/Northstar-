@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar Super Specialty Hospital | Kolhapur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Mukta:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,0,0&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #001e40;
+      --primary-2: #082d5c;
+      --cyan: #69e8fe;
+      --cyan-2: #16bde7;
+      --emergency: #ba1a1a;
+      --gold: #d7a83f;
+      --ink: #07121f;
+      --muted: #617184;
+      --line: rgba(0, 30, 64, 0.1);
+      --glass: rgba(255, 255, 255, 0.76);
+      --glass-strong: rgba(255, 255, 255, 0.9);
+      --clinical-shadow: 0 24px 70px rgba(0, 30, 64, 0.12);
+      --clinical-shadow-deep: 0 36px 100px rgba(0, 30, 64, 0.22);
+      --radius: 8px;
+      --radius-lg: 24px;
+      color: var(--ink);
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 14% 0%, rgba(105, 232, 254, 0.18), transparent 30%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 42%, #f3f7fb 100%);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .material-symbols-rounded {
+      direction: ltr;
+      display: inline-block;
+      font-family: "Material Symbols Rounded";
+      font-feature-settings: "liga";
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: normal;
+      line-height: 1;
+      text-transform: none;
+      white-space: nowrap;
+      word-wrap: normal;
+    }
+
+    .page {
+      margin: 0 auto;
+      max-width: 1240px;
+      padding: 0 24px 56px;
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: var(--clinical-shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .header {
+      position: sticky;
+      top: 14px;
+      z-index: 50;
+      margin: 14px auto 28px;
+      border-radius: 28px;
+      transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+    }
+
+    .header.is-scrolled {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 54px rgba(0, 30, 64, 0.16);
+      transform: translateY(-4px);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: minmax(220px, auto) 1fr auto;
+      align-items: center;
+      gap: 18px;
+      min-height: 78px;
+      padding: 14px 18px;
+      transition: min-height 220ms ease, padding 220ms ease;
+    }
+
+    .header.is-scrolled .header-inner {
+      min-height: 62px;
+      padding: 10px 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      border-radius: 14px;
+      background: linear-gradient(145deg, var(--primary), #0f4d8f);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 18px 36px rgba(0, 30, 64, 0.24);
+    }
+
+    .brand-title {
+      color: var(--primary);
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .brand-place {
+      color: var(--muted);
+      font-family: "Mukta", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.1;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      padding: 5px;
+      border-radius: 999px;
+      background: rgba(0, 30, 64, 0.045);
+    }
+
+    .nav a {
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: rgba(0, 30, 64, 0.74);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .nav a:hover {
+      background: #fff;
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-2));
+      color: var(--primary);
+      box-shadow: 0 18px 40px rgba(22, 189, 231, 0.24);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(18, 140, 126, 0.22);
+    }
+
+    .btn-emergency {
+      background: rgba(186, 26, 26, 0.1);
+      color: var(--emergency);
+      box-shadow: inset 0 0 0 1px rgba(186, 26, 26, 0.14);
+    }
+
+    .btn-ambulance {
+      background: rgba(0, 30, 64, 0.08);
+      color: var(--primary);
+      box-shadow: inset 0 0 0 1px rgba(0, 30, 64, 0.1);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(360px, 0.97fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 12px 0 48px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 620px;
+      padding: 48px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin-bottom: 20px;
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: rgba(105, 232, 254, 0.14);
+      color: var(--primary);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #14c778;
+      box-shadow: 0 0 0 8px rgba(20, 199, 120, 0.12);
+    }
+
+    h1 {
+      max-width: 720px;
+      color: var(--primary);
+      font-size: clamp(3.2rem, 6vw, 6.45rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 0.92;
+    }
+
+    .marathi {
+      font-family: "Mukta", sans-serif;
+    }
+
+    .heading-subtitle {
+      margin: 18px 0 0;
+      color: var(--primary-2);
+      font-family: "Mukta", sans-serif;
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
+
+    .hero-lede {
+      max-width: 650px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 32px;
+      max-width: 680px;
+    }
+
+    .trust-card {
+      min-height: 98px;
+      border-radius: var(--radius);
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 30, 64, 0.08);
+      box-shadow: 0 16px 34px rgba(0, 30, 64, 0.07);
+    }
+
+    .trust-card strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.05rem;
+      line-height: 1.1;
+    }
+
+    .trust-card span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 620px;
+      overflow: hidden;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(0, 30, 64, 0.02), rgba(0, 30, 64, 0.14)),
+        url("a.jpg") center/cover;
+      box-shadow: var(--clinical-shadow-deep);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 30, 64, 0.04), rgba(0, 30, 64, 0.42)),
+        radial-gradient(circle at 80% 16%, rgba(105, 232, 254, 0.16), transparent 28%);
+    }
+
+    .facility-widget {
+      position: absolute;
+      right: 22px;
+      top: 22px;
+      width: min(315px, calc(100% - 44px));
+      border-radius: 24px;
+      padding: 18px;
+      color: #fff;
+      background: rgba(0, 30, 64, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(20px);
+    }
+
+    .facility-widget .label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .facility-widget h2 {
+      margin-top: 14px;
+      font-size: 1.55rem;
+      line-height: 1.05;
+    }
+
+    .facility-widget p {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .floating-metric {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      width: min(420px, calc(100% - 44px));
+      border-radius: 24px;
+      padding: 18px;
+      color: var(--primary);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.54);
+      box-shadow: 0 24px 64px rgba(0, 30, 64, 0.18);
+      backdrop-filter: blur(20px);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .metric-cell {
+      border-radius: var(--radius);
+      padding: 14px;
+      background: rgba(0, 30, 64, 0.045);
+    }
+
+    .metric-cell strong {
+      display: block;
+      font-size: 1.15rem;
+      line-height: 1.1;
+    }
+
+    .metric-cell span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .section {
+      padding: 58px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      color: var(--cyan-2);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin-top: 8px;
+      color: var(--primary);
+      font-size: clamp(2rem, 3.4vw, 3.35rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .section-marathi {
+      margin-top: 8px;
+      color: var(--muted);
+      font-family: "Mukta", sans-serif;
+      font-size: 1.04rem;
+    }
+
+    .section-note {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 208px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 18px 48px rgba(0, 30, 64, 0.08);
+      backdrop-filter: blur(18px);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .service-card:hover {
+      border-color: rgba(105, 232, 254, 0.6);
+      box-shadow: 0 28px 70px rgba(0, 30, 64, 0.14);
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -35% -62% 10%;
+      height: 150px;
+      background: radial-gradient(circle, rgba(105, 232, 254, 0.28), transparent 62%);
+      pointer-events: none;
+    }
+
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 26px;
+      border-radius: 16px;
+      background: rgba(0, 30, 64, 0.06);
+      color: var(--primary);
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      font-size: 1.18rem;
+      line-height: 1.1;
+    }
+
+    .service-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.55;
+    }
+
+    .robot-card {
+      min-height: 282px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(0, 30, 64, 0.96), rgba(2, 59, 111, 0.86)),
+        radial-gradient(circle at 80% 16%, rgba(105, 232, 254, 0.38), transparent 35%);
+      border: 1px solid rgba(105, 232, 254, 0.55);
+      box-shadow: 0 28px 90px rgba(0, 30, 64, 0.24), 0 0 0 1px rgba(105, 232, 254, 0.2);
+    }
+
+    .robot-card h3,
+    .robot-card .service-icon {
+      color: #fff;
+    }
+
+    .robot-card p {
+      max-width: 460px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .robot-card .service-icon {
+      background: rgba(105, 232, 254, 0.16);
+      box-shadow: inset 0 0 0 1px rgba(105, 232, 254, 0.2);
+    }
+
+    .tech-badge {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(105, 232, 254, 0.16);
+      color: #d9fbff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .dark-section {
+      margin: 32px -24px 0;
+      padding: 76px 24px;
+      background:
+        radial-gradient(circle at 16% 20%, rgba(105, 232, 254, 0.2), transparent 28%),
+        linear-gradient(135deg, #00142c 0%, #001e40 48%, #07121f 100%);
+      color: #fff;
+    }
+
+    .dark-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1.14fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .dark-section .section-title {
+      color: #fff;
+    }
+
+    .dark-section .section-marathi,
+    .dark-section .section-note {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .advantage-panel {
+      border-radius: 28px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+    }
+
+    .comparison-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .comparison-item {
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      border-radius: var(--radius);
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .comparison-item:hover {
+      background: rgba(105, 232, 254, 0.12);
+      transform: translateX(3px);
+    }
+
+    .comparison-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: rgba(105, 232, 254, 0.13);
+      color: var(--cyan);
+    }
+
+    .comparison-item h3 {
+      font-size: 1.02rem;
+      line-height: 1.2;
+    }
+
+    .comparison-item p {
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .comparison-stat {
+      color: var(--cyan);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .doctor-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 506px;
+      border-radius: 30px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      box-shadow: var(--clinical-shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .doctor-card.featured {
+      color: #fff;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(105, 232, 254, 0.2), transparent 22%),
+        linear-gradient(135deg, #00142c 0%, #001e40 56%, #00224a 100%);
+      box-shadow: 0 30px 90px rgba(0, 30, 64, 0.28);
+    }
+
+    .doctor-profile {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .doctor-photo-wrap {
+      position: relative;
+      width: 126px;
+      height: 126px;
+    }
+
+    .doctor-photo {
+      width: 126px;
+      height: 126px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      object-fit: cover;
+      box-shadow: 0 18px 34px rgba(0, 30, 64, 0.16);
+    }
+
+    .featured .doctor-photo {
+      border-color: var(--cyan);
+      box-shadow: 0 18px 36px rgba(105, 232, 254, 0.2);
+    }
+
+    .doctor-verified {
+      position: absolute;
+      right: -2px;
+      bottom: -4px;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #ff9f1c;
+      color: #fff;
+      border: 4px solid #00214a;
+    }
+
+    .doctor-card h3 {
+      color: var(--primary);
+      font-size: clamp(1.6rem, 2.4vw, 2.02rem);
+      font-weight: 800;
+      line-height: 1.08;
+    }
+
+    .featured h3 {
+      color: #fff;
+    }
+
+    .doctor-degree {
+      margin-top: 2px;
+      color: #009af2;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .doctor-degree + .doctor-tags {
+      margin-top: 12px;
+      margin-bottom: 0;
+    }
+
+    .featured .doctor-degree {
+      color: var(--cyan);
+    }
+
+    .doctor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .doctor-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: rgba(0, 97, 255, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(0, 97, 255, 0.18);
+      color: #0051ff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .doctor-tag.gold {
+      background: rgba(255, 159, 28, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 159, 28, 0.48);
+      color: #ffb238;
+    }
+
+    .doctor-tag.cyan {
+      background: rgba(105, 232, 254, 0.12);
+      box-shadow: inset 0 0 0 1px rgba(105, 232, 254, 0.38);
+      color: var(--cyan);
+    }
+
+    .doctor-tag.green {
+      background: rgba(20, 199, 120, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(20, 199, 120, 0.28);
+      color: #039653;
+    }
+
+    .doctor-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .doctor-metric {
+      display: grid;
+      place-items: center;
+      min-height: 100px;
+      border-radius: 14px;
+      padding: 18px;
+      background: rgba(0, 30, 64, 0.06);
+      text-align: center;
+    }
+
+    .featured .doctor-metric {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .doctor-metric strong {
+      color: var(--primary);
+      font-size: clamp(1.75rem, 3vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .featured .doctor-metric strong {
+      color: var(--cyan);
+    }
+
+    .doctor-metric span {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .featured .doctor-metric span,
+    .featured .doctor-bio {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .doctor-bio {
+      margin-top: 28px;
+      color: #66738a;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .doctor-book {
+      width: 100%;
+      margin-top: auto;
+      border-radius: 14px;
+      min-height: 58px;
+      font-size: 1rem;
+    }
+
+    .btn-navy {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(0, 30, 64, 0.18);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(20, 199, 120, 0.1);
+      color: #0f7e4e;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .insurance-card {
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: var(--clinical-shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .insurance-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .insurer {
+      display: grid;
+      place-items: center;
+      min-height: 78px;
+      border-radius: var(--radius);
+      background: rgba(0, 30, 64, 0.04);
+      border: 1px solid rgba(0, 30, 64, 0.06);
+      color: rgba(0, 30, 64, 0.54);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .scheme {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      margin-top: 16px;
+      border-radius: 22px;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--primary), #063e76);
+      color: #fff;
+      box-shadow: 0 24px 70px rgba(0, 30, 64, 0.2);
+    }
+
+    .scheme-icon {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: rgba(105, 232, 254, 0.14);
+      color: var(--cyan);
+    }
+
+    .scheme h3 {
+      font-size: 1.08rem;
+      line-height: 1.15;
+    }
+
+    .scheme p {
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.9rem;
+    }
+
+    .site-credit {
+      padding: 18px 0 0;
+      color: rgba(0, 30, 64, 0.5);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .fab {
+      position: fixed;
+      right: 18px;
+      bottom: max(18px, env(safe-area-inset-bottom));
+      z-index: 60;
+      display: none;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #f14a4a, var(--emergency));
+      color: #fff;
+      box-shadow: 0 24px 58px rgba(186, 26, 26, 0.34);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .fab:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 28px 70px rgba(186, 26, 26, 0.42);
+    }
+
+    .appointment-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(0, 18, 39, 0.58);
+      backdrop-filter: blur(14px);
+    }
+
+    .appointment-modal[hidden] {
+      display: none;
+    }
+
+    .appointment-dialog {
+      width: min(100%, 560px);
+      max-height: min(760px, calc(100vh - 40px));
+      overflow: auto;
+      border-radius: 28px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 36px 110px rgba(0, 0, 0, 0.28);
+    }
+
+    .appointment-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .appointment-top h2 {
+      color: var(--primary);
+      font-size: 1.7rem;
+      line-height: 1.08;
+    }
+
+    .appointment-top p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-family: "Mukta", sans-serif;
+      font-size: 1rem;
+    }
+
+    .icon-btn {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: rgba(0, 30, 64, 0.07);
+      color: var(--primary);
+    }
+
+    .appointment-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(0, 30, 64, 0.12);
+      border-radius: 16px;
+      padding: 13px 14px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .field textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(105, 232, 254, 0.9);
+      box-shadow: 0 0 0 4px rgba(105, 232, 254, 0.16);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 1080px) {
+      .header-inner,
+      .hero,
+      .dark-inner,
+      .doctor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .doctor-card {
+        min-height: auto;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .header-actions,
+      .brand {
+        justify-content: center;
+      }
+
+      .hero-copy,
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .hero-copy {
+        padding: 34px 0 18px;
+      }
+
+      .hero-visual {
+        min-height: 540px;
+      }
+
+      .span-3,
+      .span-4,
+      .span-6 {
+        grid-column: span 6;
+      }
+
+      .robot-card {
+        grid-column: span 12;
+      }
+
+      .insurance-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        background:
+          radial-gradient(circle at 90% 2%, rgba(105, 232, 254, 0.28), transparent 28%),
+          radial-gradient(circle at 10% 24%, rgba(215, 168, 63, 0.14), transparent 24%),
+          linear-gradient(180deg, #f7fbff 0%, #ffffff 46%, #eef6fb 100%);
+      }
+
+      body.mobile-main {
+        min-height: 100dvh;
+        background:
+          radial-gradient(circle at 16% 10%, rgba(105, 232, 254, 0.38), transparent 32%),
+          radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.9), transparent 26%),
+          linear-gradient(180deg, #eef9ff 0%, #dbeaf3 58%, #d2e0e9 100%);
+      }
+
+      .page {
+        padding: 0 18px 96px;
+      }
+
+      .header {
+        top: 10px;
+        margin: 10px auto 14px;
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 18px 48px rgba(0, 30, 64, 0.14);
+      }
+
+      body.mobile-main .header {
+        position: relative;
+        top: auto;
+        margin: 42px 0 28px;
+        overflow: hidden;
+        border-radius: 36px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(227, 248, 252, 0.74));
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        box-shadow:
+          0 26px 60px rgba(14, 188, 207, 0.26),
+          inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      }
+
+      .header-inner {
+        gap: 12px;
+        min-height: auto;
+        padding: 12px;
+      }
+
+      body.mobile-main .header-inner {
+        gap: 16px;
+        padding: 18px 24px 18px;
+      }
+
+      .brand {
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 15px;
+        font-size: 0.88rem;
+      }
+
+      body.mobile-main .brand {
+        gap: 16px;
+      }
+
+      body.mobile-main .brand-mark {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        font-size: 1.45rem;
+        box-shadow: inset 0 -5px 12px rgba(0, 0, 0, 0.16), 0 12px 28px rgba(0, 30, 64, 0.22);
+      }
+
+      .brand-title {
+        display: block;
+        max-width: 230px;
+        font-size: 0.9rem;
+        line-height: 1.16;
+      }
+
+      body.mobile-main .brand-title {
+        max-width: none;
+        color: #001a3a;
+        font-size: clamp(1.55rem, 5.8vw, 2.2rem);
+        letter-spacing: -0.05em;
+        line-height: 1.02;
+      }
+
+      .brand-place {
+        margin-top: 3px;
+        font-size: 0.82rem;
+      }
+
+      body.mobile-main .brand-place {
+        margin-top: 4px;
+        color: rgba(0, 30, 64, 0.56);
+        font-family: "Mukta", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .header-actions {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+      }
+
+      .header-actions .btn {
+        min-height: 46px;
+        padding: 9px 8px;
+        font-size: 0.74rem;
+        line-height: 1.15;
+        white-space: normal;
+        box-shadow: none;
+      }
+
+      body.mobile-main .header-actions {
+        gap: 14px;
+      }
+
+      body.mobile-main .header-actions .btn {
+        min-height: 70px;
+        border-radius: 999px;
+        font-size: 0;
+        box-shadow:
+          inset 0 4px 7px rgba(255, 255, 255, 0.62),
+          inset 0 -7px 12px rgba(0, 0, 0, 0.16),
+          0 10px 18px rgba(0, 30, 64, 0.14);
+      }
+
+      body.mobile-main .header-actions .material-symbols-rounded {
+        font-size: 1.72rem;
+      }
+
+      body.mobile-main .header-actions .btn-emergency {
+        background: linear-gradient(180deg, #ce2e2e, #9e0808);
+        color: #fff;
+      }
+
+      body.mobile-main .header-actions .btn-ambulance {
+        position: relative;
+        background: linear-gradient(180deg, #84a7c2, #4e718f);
+        color: #fff;
+      }
+
+      body.mobile-main .header-actions .btn-ambulance::after {
+        content: "Live";
+        position: absolute;
+        right: -4px;
+        top: -8px;
+        border-radius: 999px;
+        padding: 4px 8px;
+        background: rgba(255, 255, 255, 0.86);
+        color: #001e40;
+        font-size: 0.72rem;
+        font-weight: 800;
+        box-shadow: 0 8px 18px rgba(0, 30, 64, 0.16);
+      }
+
+      body.mobile-main .header-actions .btn-whatsapp {
+        background: linear-gradient(180deg, #10a95c, #007b3a);
+        color: #fff;
+      }
+
+      .header-actions .btn-whatsapp {
+        flex-basis: auto;
+      }
+
+      .nav {
+        order: 3;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4px;
+        width: 100%;
+        padding: 6px;
+        border-radius: 999px;
+        background: rgba(0, 30, 64, 0.07);
+      }
+
+      body.mobile-main .nav {
+        gap: 4px;
+        padding: 10px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
+      }
+
+      .nav a {
+        display: grid;
+        place-items: center;
+        min-height: 42px;
+        padding: 8px 6px;
+        border-radius: 999px;
+        color: rgba(0, 30, 64, 0.78);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      body.mobile-main .nav a {
+        gap: 5px;
+        min-height: 70px;
+        color: #07121f;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      body.mobile-main .nav a::before {
+        color: rgba(0, 30, 64, 0.58);
+        font-family: "Material Symbols Rounded";
+        font-size: 1.62rem;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      body.mobile-main .nav a:nth-child(1)::before { content: "medical_services"; }
+      body.mobile-main .nav a:nth-child(2)::before { content: "precision_manufacturing"; }
+      body.mobile-main .nav a:nth-child(3)::before { content: "stethoscope"; }
+      body.mobile-main .nav a:nth-child(4)::before { content: "health_and_safety"; }
+
+      .nav a.is-active,
+      .nav a:focus-visible {
+        background: #fff;
+        color: var(--primary);
+        box-shadow: 0 10px 24px rgba(0, 30, 64, 0.1);
+      }
+
+      .hero {
+        gap: 14px;
+        padding: 6px 0 18px;
+      }
+
+      .hero-copy {
+        padding: 18px 0 0;
+      }
+
+      h1 {
+        max-width: 19ch;
+        font-size: clamp(1.55rem, 7.2vw, 2rem);
+        letter-spacing: -0.045em;
+        line-height: 1;
+      }
+
+      .eyebrow {
+        display: none;
+      }
+
+      .heading-subtitle,
+      .hero-lede {
+        display: none;
+      }
+
+      .hero-actions {
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .hero-actions .btn {
+        flex: 1 1 100%;
+        min-height: 52px;
+        border-radius: 18px;
+      }
+
+      .hero-actions .btn-whatsapp {
+        min-height: 58px;
+        font-size: 1rem;
+      }
+
+      body.mobile-main .hero {
+        position: relative;
+        display: block;
+        min-height: auto;
+        aspect-ratio: 1078 / 947;
+        margin: 0 0 26px;
+        overflow: hidden;
+        border-radius: 24px;
+        background: url("a.jpg") center / cover no-repeat;
+        box-shadow: 0 24px 54px rgba(0, 30, 64, 0.18);
+      }
+
+      body.mobile-main .hero::after {
+        content: "Western Maharashtra's Advanced Center for Robotic Joint Replacement";
+        position: absolute;
+        inset: auto 0 0;
+        padding: 18px 16px 14px;
+        background: linear-gradient(180deg, transparent, rgba(0, 30, 64, 0.74));
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 0.94rem;
+        line-height: 1.25;
+        text-align: center;
+      }
+
+      body.mobile-main .hero-copy,
+      body.mobile-main .hero-visual {
+        display: none;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .appointment-modal {
+        align-items: end;
+        padding: 12px;
+      }
+
+      .appointment-dialog {
+        width: 100%;
+        max-height: calc(100dvh - 24px);
+        border-radius: 26px 26px 18px 18px;
+        padding: 18px;
+      }
+
+      .appointment-top h2 {
+        font-size: 1.38rem;
+      }
+
+      .field input,
+      .field textarea {
+        min-height: 50px;
+        border-radius: 14px;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-row {
+        display: none;
+      }
+
+      .trust-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .trust-card {
+        min-width: 72%;
+        min-height: 112px;
+        scroll-snap-align: start;
+        border-radius: 22px;
+        padding: 17px;
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .hero-visual {
+        min-height: max(320px, calc(100dvh - 420px));
+        border-radius: 28px;
+        background-position: center top;
+      }
+
+      .hero-visual::before,
+      .facility-widget,
+      .floating-metric {
+        display: none;
+      }
+
+      .facility-widget,
+      .floating-metric {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        border-radius: 22px;
+        padding: 15px;
+      }
+
+      .facility-widget {
+        top: 12px;
+      }
+
+      .floating-metric {
+        bottom: 12px;
+      }
+
+      .facility-widget h2 {
+        margin-top: 10px;
+        font-size: 1.22rem;
+      }
+
+      .facility-widget p,
+      .metric-cell span {
+        font-size: 0.82rem;
+      }
+
+      .metric-cell {
+        padding: 12px;
+      }
+
+      .section {
+        padding: 38px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-title {
+        font-size: clamp(1.85rem, 9vw, 2.55rem);
+        letter-spacing: -0.035em;
+        line-height: 0.98;
+      }
+
+      .section-note {
+        margin-top: 14px;
+        font-size: 0.92rem;
+      }
+
+      .bento {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .span-3,
+      .span-4,
+      .span-6,
+      .robot-card {
+        grid-column: span 1;
+      }
+
+      .service-card {
+        min-height: 0;
+        border-radius: 24px;
+        padding: 18px;
+      }
+
+      .service-icon {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 18px;
+        border-radius: 15px;
+      }
+
+      .robot-card {
+        min-height: 230px;
+        padding-top: 54px;
+      }
+
+      .tech-badge {
+        left: 18px;
+        right: auto;
+      }
+
+      .dark-section {
+        margin: 18px 0 0;
+        padding: 48px 16px;
+        border-radius: 32px 32px 0 0;
+      }
+
+      .dark-inner {
+        gap: 20px;
+      }
+
+      .advantage-panel {
+        border-radius: 24px;
+        padding: 14px;
+      }
+
+      .comparison-item {
+        grid-template-columns: 42px 1fr;
+        gap: 12px;
+        border-radius: 20px;
+        padding: 14px;
+      }
+
+      .comparison-stat {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .doctor-card {
+        padding: 20px;
+        border-radius: 28px;
+      }
+
+      .doctor-profile {
+        grid-template-columns: 86px 1fr;
+        gap: 14px;
+      }
+
+      .doctor-photo-wrap,
+      .doctor-photo {
+        width: 84px;
+        height: 84px;
+      }
+
+      .doctor-verified {
+        width: 30px;
+        height: 30px;
+        border-width: 3px;
+      }
+
+      .doctor-metrics {
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .doctor-metric {
+        min-height: 92px;
+        padding: 14px 10px;
+      }
+
+      .doctor-bio {
+        margin-top: 18px;
+        font-size: 0.94rem;
+      }
+
+      .doctor-book {
+        min-height: 54px;
+        margin-top: 22px;
+        border-radius: 18px;
+      }
+
+      .insurance-card {
+        margin-inline: -2px;
+        border-radius: 28px;
+        padding: 20px;
+      }
+
+      .insurance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .insurer {
+        min-height: 64px;
+        border-radius: 18px;
+        font-size: 0.82rem;
+      }
+
+      .scheme {
+        grid-template-columns: 48px 1fr;
+        border-radius: 24px;
+        padding: 16px;
+      }
+
+      .scheme .btn {
+        grid-column: 1 / -1;
+      }
+
+      .fab {
+        display: grid;
+        place-items: center;
+        right: 16px;
+        width: 58px;
+        height: 58px;
+      }
+
+      body.mobile-main #services,
+      body.mobile-main #robotics,
+      body.mobile-main #doctor,
+      body.mobile-main #insurance,
+      body.mobile-main .site-credit {
+        display: none;
+      }
+
+      body.mobile-section-open .hero,
+      body.mobile-section-open #services,
+      body.mobile-section-open #robotics,
+      body.mobile-section-open #doctor,
+      body.mobile-section-open #insurance {
+        display: none;
+      }
+
+      body.mobile-section-open #services.is-mobile-active,
+      body.mobile-section-open #robotics.is-mobile-active,
+      body.mobile-section-open #doctor.is-mobile-active,
+      body.mobile-section-open #insurance.is-mobile-active {
+        display: block;
+      }
+
+      body.mobile-section-open #doctor.is-mobile-active {
+        display: grid;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .header-actions .btn {
+        font-size: 0;
+      }
+
+      .header-actions .btn .material-symbols-rounded {
+        font-size: 1.28rem;
+      }
+
+      .hero-visual {
+        min-height: max(300px, calc(100dvh - 390px));
+      }
+
+      .trust-card {
+        min-width: 82%;
+      }
+
+      .doctor-profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .doctor-photo-wrap {
+        margin-inline: auto;
+      }
+
+      .doctor-tags {
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header glass" id="siteHeader">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="NorthStar Super Specialty Hospital home">
+          <span class="brand-mark">NS</span>
+          <span>
+            <span class="brand-title">NorthStar Super Specialty Hospital</span>
+            <span class="brand-place">Kolhapur</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#robotics">Robotics</a>
+          <a href="#doctor">Doctor</a>
+          <a href="#insurance">Insurance</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn-emergency" href="tel:+912312328111" aria-label="Open dial pad for doctor emergency number 0231 2328111">
+            <span class="material-symbols-rounded" aria-hidden="true">call</span>
+            Emergency Call
+          </a>
+          <a class="btn btn-ambulance" href="tel:+912312328111" aria-label="Open dial pad for ambulance number 0231 2328111">
+            <span class="material-symbols-rounded" aria-hidden="true">ambulance</span>
+            Ambulance
+          </a>
+          <button class="btn btn-whatsapp js-open-appointment" type="button">
+            <span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>
+            WhatsApp Appointment
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse" aria-hidden="true"></span>Live emergency team active</div>
+          <h1 id="hero-title">NorthStar Super Specialty Hospital</h1>
+          <p class="heading-subtitle">कोल्हापूरसाठी प्रगत, विश्वासार्ह आणि तंत्रज्ञानाधारित आरोग्यसेवा</p>
+          <p class="hero-lede">Apple-style clarity for serious medicine: robotic surgery, critical care, and specialist-led treatment designed for faster decisions and calmer patient journeys.</p>
+          <div class="hero-actions">
+            <button class="btn btn-whatsapp js-open-appointment" type="button">
+              <span class="material-symbols-rounded" aria-hidden="true">chat</span>
+              Book by WhatsApp
+            </button>
+            <a class="btn btn-emergency" href="tel:+912312328111" aria-label="Open dial pad for doctor emergency number 0231 2328111">
+              <span class="material-symbols-rounded" aria-hidden="true">emergency</span>
+              24/7 Emergency
+            </a>
+            <a class="btn btn-ambulance" href="tel:+912312328111" aria-label="Open dial pad for ambulance number 0231 2328111">
+              <span class="material-symbols-rounded" aria-hidden="true">ambulance</span>
+              Ambulance
+            </a>
+          </div>
+
+          <div class="trust-row" aria-label="Hospital highlights">
+            <div class="trust-card">
+              <strong>Robotic Suite</strong>
+              <span>Precision theatre for minimally invasive surgery.</span>
+            </div>
+            <div class="trust-card">
+              <strong>25+ Years</strong>
+              <span>Senior clinical leadership in advanced surgery.</span>
+            </div>
+            <div class="trust-card">
+              <strong>Kolhapur First</strong>
+              <span>Local language guidance from admission to discharge.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="NorthStar Super Specialty Hospital building">
+          <div class="facility-widget glass">
+            <div class="label">
+              <span>Live Facility Status</span>
+              <span class="pulse" aria-hidden="true"></span>
+            </div>
+            <h2>24/7 ICU Availability</h2>
+            <p>Ventilator-ready critical care beds with emergency response clinicians on standby.</p>
+          </div>
+
+          <div class="floating-metric glass">
+            <strong>Care Command Center</strong>
+            <div class="metric-grid">
+              <div class="metric-cell">
+                <strong>12 min</strong>
+                <span>Robotic theatre readiness</span>
+              </div>
+              <div class="metric-cell">
+                <strong>Active</strong>
+                <span>Emergency response team</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services" aria-labelledby="services-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Interactive Service Bento</p>
+            <h2 class="section-title" id="services-title">Specialty care, arranged for quick decisions.</h2>
+            <p class="section-marathi">प्रत्येक विभाग स्पष्ट, सुलभ आणि रुग्णकेंद्रित पद्धतीने मांडलेला आहे.</p>
+          </div>
+          <p class="section-note">A 12-column clinical bento that highlights high-value services, with robotics leading the conversion story.</p>
+        </div>
+
+        <div class="bento">
+          <article class="service-card robot-card span-6">
+            <span class="tech-badge">Tech-Spec</span>
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">smart_toy</span></div>
+            <h3>Robotic Surgery</h3>
+            <p>AI-assisted navigation, tremor-filtered instrument control, and enhanced visibility for minimally invasive procedures.</p>
+          </article>
+          <article class="service-card span-3">
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">cardiology</span></div>
+            <h3>Cardiology</h3>
+            <p>Advanced heart care, diagnostics, intervention, and cardiac monitoring.</p>
+          </article>
+          <article class="service-card span-3">
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">neurology</span></div>
+            <h3>Neurology</h3>
+            <p>Stroke care, neuro diagnostics, and coordinated rehabilitation pathways.</p>
+          </article>
+          <article class="service-card span-3">
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">orthopedics</span></div>
+            <h3>Orthopaedics</h3>
+            <p>Joint preservation, sports injury treatment, and reconstruction planning.</p>
+          </article>
+          <article class="service-card span-3">
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">emergency_home</span></div>
+            <h3>Emergency</h3>
+            <p>Round-the-clock trauma triage, ICU transfer, and rapid care activation.</p>
+          </article>
+          <article class="service-card span-4">
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">oncology</span></div>
+            <h3>Oncology</h3>
+            <p>Precision oncology planning with surgical, medical, and supportive care.</p>
+          </article>
+          <article class="service-card span-4">
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">gastroenterology</span></div>
+            <h3>Gastroenterology</h3>
+            <p>Endoscopy, liver support, and advanced abdominal surgery pathways.</p>
+          </article>
+          <article class="service-card span-4">
+            <div class="service-icon"><span class="material-symbols-rounded" aria-hidden="true">pregnant_woman</span></div>
+            <h3>Women’s Health</h3>
+            <p>Obstetrics, gynecology, and fertility care with family-centered support.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <section class="dark-section" id="robotics" aria-labelledby="robotics-title">
+    <div class="dark-inner">
+      <div>
+        <p class="section-kicker">The Robotic Advantage</p>
+        <h2 class="section-title" id="robotics-title">Precision that feels almost invisible.</h2>
+        <p class="section-marathi">रोबोटिक तंत्रज्ञानामुळे अधिक अचूकता, कमी वेदना आणि जलद पुनर्प्राप्तीचा मार्ग.</p>
+        <p class="section-note">The surgeon stays in control. Robotics add steadiness, magnified visibility, and predictable movement for delicate procedures.</p>
+      </div>
+
+      <div class="advantage-panel">
+        <div class="comparison-list">
+          <article class="comparison-item">
+            <div class="comparison-icon"><span class="material-symbols-rounded" aria-hidden="true">precision_manufacturing</span></div>
+            <div>
+              <h3>Robotic precision</h3>
+              <p>Instrument movement is scaled and stabilized for delicate tissue handling.</p>
+            </div>
+            <strong class="comparison-stat">Micro-control</strong>
+          </article>
+          <article class="comparison-item">
+            <div class="comparison-icon"><span class="material-symbols-rounded" aria-hidden="true">back_hand</span></div>
+            <div>
+              <h3>Manual surgery</h3>
+              <p>Excellent outcomes depend more heavily on reach, access, and hand steadiness.</p>
+            </div>
+            <strong class="comparison-stat">Human-led</strong>
+          </article>
+          <article class="comparison-item">
+            <div class="comparison-icon"><span class="material-symbols-rounded" aria-hidden="true">visibility</span></div>
+            <div>
+              <h3>Enhanced visibility</h3>
+              <p>High-definition magnification supports careful decisions in confined anatomy.</p>
+            </div>
+            <strong class="comparison-stat">HD view</strong>
+          </article>
+          <article class="comparison-item">
+            <div class="comparison-icon"><span class="material-symbols-rounded" aria-hidden="true">healing</span></div>
+            <div>
+              <h3>Recovery pathway</h3>
+              <p>Smaller incisions can support less pain, shorter stays, and earlier mobility.</p>
+            </div>
+            <strong class="comparison-stat">Faster rehab</strong>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page">
+    <section class="section doctor-grid" id="doctor" aria-labelledby="doctor-title">
+      <article class="doctor-card featured">
+        <div class="doctor-profile">
+          <div class="doctor-photo-wrap">
+            <img class="doctor-photo" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=320&q=82" alt="Dr. Deepak Joshi" />
+            <span class="doctor-verified" aria-hidden="true">
+              <span class="material-symbols-rounded">workspace_premium</span>
+            </span>
+          </div>
+          <div>
+            <div class="doctor-tags">
+              <span class="doctor-tag gold">25+ Years Experience</span>
+            </div>
+            <h3 id="doctor-title">Dr. Deepak Joshi</h3>
+            <p class="doctor-degree">MS Ortho, FIAS, FJRCS (UK)</p>
+            <div class="doctor-tags">
+              <span class="doctor-tag cyan"><span class="material-symbols-rounded" aria-hidden="true">smart_toy</span>Pioneer in Robotics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="doctor-metrics" aria-label="Dr. Deepak Joshi experience metrics">
+          <div class="doctor-metric">
+            <strong>500+</strong>
+            <span>Robotic Surgeries</span>
+          </div>
+          <div class="doctor-metric">
+            <strong>25+</strong>
+            <span>Years Experience</span>
+          </div>
+        </div>
+
+        <p class="doctor-bio">Head of Robotic &amp; Joint Replacement at NorthStar. Trained at AIIMS Delhi, pioneer of robotic orthopaedic surgery in Western Maharashtra.</p>
+
+        <button class="btn btn-primary doctor-book js-open-appointment" type="button">
+          <span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>
+          Book with Dr. Joshi
+        </button>
+      </article>
+
+      <article class="doctor-card" id="appointment">
+        <div class="doctor-profile">
+          <div class="doctor-photo-wrap">
+            <img class="doctor-photo" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=320&q=82" alt="Dr. Priya Mehta" />
+          </div>
+          <div>
+            <div class="doctor-tags">
+              <span class="doctor-tag">15+ Years Experience</span>
+            </div>
+            <h3>Dr. Priya Mehta</h3>
+            <p class="doctor-degree">DM Cardiology, FACC</p>
+            <div class="doctor-tags">
+              <span class="doctor-tag green"><span class="material-symbols-rounded" aria-hidden="true">monitor_heart</span>Interventional Cardiology</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="doctor-metrics" aria-label="Dr. Priya Mehta experience metrics">
+          <div class="doctor-metric">
+            <strong>2000+</strong>
+            <span>Procedures</span>
+          </div>
+          <div class="doctor-metric">
+            <strong>15+</strong>
+            <span>Years Exp.</span>
+          </div>
+        </div>
+
+        <p class="doctor-bio">Leading interventional cardiologist specialising in complex coronary interventions, TAVI, and structural heart procedures.</p>
+
+        <button class="btn btn-navy doctor-book js-open-appointment" type="button">
+          <span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>
+          Book Appointment
+        </button>
+      </article>
+    </section>
+
+    <section class="section" id="insurance" aria-labelledby="insurance-title">
+      <div class="insurance-card">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Insurance & Schemes</p>
+            <h2 class="section-title" id="insurance-title">Cashless care, clearly coordinated.</h2>
+            <p class="section-marathi">कॅशलेस उपचार आणि सरकारी योजनेसाठी समर्पित मदत.</p>
+          </div>
+          <p class="section-note">A calm, low-opacity payer cloud keeps the focus on trust while making coverage feel easy.</p>
+        </div>
+
+        <div class="insurance-grid" aria-label="Insurance and TPA partners">
+          <div class="insurer">Star Health</div>
+          <div class="insurer">HDFC ERGO</div>
+          <div class="insurer">Care Health</div>
+          <div class="insurer">New India</div>
+          <div class="insurer">United India</div>
+          <div class="insurer">Oriental</div>
+        </div>
+
+        <div class="scheme">
+          <div class="scheme-icon"><span class="material-symbols-rounded" aria-hidden="true">verified_user</span></div>
+          <div>
+            <h3>MJPJAY Government Scheme Highlight</h3>
+            <p>Dedicated guidance for eligible Maharashtra beneficiaries, approvals, and package-linked treatment planning.</p>
+          </div>
+          <button class="btn btn-primary" id="openEligibility" type="button">Check Eligibility</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-credit">Made by Prathamesh Patil (Pup9191)</footer>
+
+  <a class="fab" href="tel:+912312328111" aria-label="Open dial pad for doctor emergency number 0231 2328111">
+    <span class="material-symbols-rounded" aria-hidden="true">call</span>
+  </a>
+
+  <div class="appointment-modal" id="appointmentModal" hidden>
+    <section class="appointment-dialog" role="dialog" aria-modal="true" aria-labelledby="appointmentFormTitle">
+      <div class="appointment-top">
+        <div>
+          <h2 id="appointmentFormTitle">Book appointment by WhatsApp</h2>
+          <p>नाव, फोन नंबर, तारीख, वेळ आणि आरोग्य समस्या भरा.</p>
+        </div>
+        <button class="icon-btn" type="button" id="closeAppointment" aria-label="Close appointment form">
+          <span class="material-symbols-rounded" aria-hidden="true">close</span>
+        </button>
+      </div>
+
+      <form class="appointment-form" id="whatsappAppointmentForm">
+        <div class="field">
+          <label for="patientName">Patient name</label>
+          <input id="patientName" name="patientName" type="text" autocomplete="name" placeholder="Enter full name" required />
+        </div>
+
+        <div class="field">
+          <label for="patientPhone">Phone number</label>
+          <input id="patientPhone" name="patientPhone" type="tel" autocomplete="tel" placeholder="Enter mobile number" required />
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="appointmentDate">Appointment date</label>
+            <input id="appointmentDate" name="appointmentDate" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="appointmentTime">Appointment time</label>
+            <input id="appointmentTime" name="appointmentTime" type="time" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="healthIssue">Health issue</label>
+          <textarea id="healthIssue" name="healthIssue" placeholder="Example: Knee pain, accident injury, fever, follow-up consultation..." required></textarea>
+        </div>
+
+        <p class="form-note">After you submit, WhatsApp will open with a ready appointment request message. You can review it before sending.</p>
+
+        <button class="btn btn-whatsapp" type="submit">
+          <span class="material-symbols-rounded" aria-hidden="true">send</span>
+          Enter &amp; Open WhatsApp
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <div class="appointment-modal" id="eligibilityModal" hidden>
+    <section class="appointment-dialog" role="dialog" aria-modal="true" aria-labelledby="eligibilityFormTitle">
+      <div class="appointment-top">
+        <div>
+          <h2 id="eligibilityFormTitle">Check MJPJAY / insurance eligibility</h2>
+          <p>योजना किंवा इन्शुरन्स तपासण्यासाठी आवश्यक माहिती भरा.</p>
+        </div>
+        <button class="icon-btn" type="button" id="closeEligibility" aria-label="Close eligibility form">
+          <span class="material-symbols-rounded" aria-hidden="true">close</span>
+        </button>
+      </div>
+
+      <form class="appointment-form" id="eligibilityForm">
+        <div class="field">
+          <label for="eligibilityName">Patient name</label>
+          <input id="eligibilityName" name="eligibilityName" type="text" autocomplete="name" placeholder="Enter full name" required />
+        </div>
+
+        <div class="field">
+          <label for="eligibilityPhone">Phone number</label>
+          <input id="eligibilityPhone" name="eligibilityPhone" type="tel" autocomplete="tel" placeholder="Enter mobile number" required />
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="schemeType">Scheme / insurance type</label>
+            <input id="schemeType" name="schemeType" type="text" placeholder="MJPJAY, Star Health, HDFC ERGO..." required />
+          </div>
+
+          <div class="field">
+            <label for="cardNumber">Card / policy number</label>
+            <input id="cardNumber" name="cardNumber" type="text" placeholder="Enter if available" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="eligibilityIssue">Treatment / health issue</label>
+          <textarea id="eligibilityIssue" name="eligibilityIssue" placeholder="Example: Knee replacement, accident injury, cardiac treatment, surgery estimate..." required></textarea>
+        </div>
+
+        <p class="form-note">WhatsApp will open with a ready eligibility request. You can review it before sending.</p>
+
+        <button class="btn btn-whatsapp" type="submit">
+          <span class="material-symbols-rounded" aria-hidden="true">verified_user</span>
+          Enter &amp; Check on WhatsApp
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    const header = document.getElementById("siteHeader");
+    const appointmentModal = document.getElementById("appointmentModal");
+    const eligibilityModal = document.getElementById("eligibilityModal");
+    const openAppointmentButtons = document.querySelectorAll(".js-open-appointment");
+    const openEligibilityButton = document.getElementById("openEligibility");
+    const closeAppointmentButton = document.getElementById("closeAppointment");
+    const closeEligibilityButton = document.getElementById("closeEligibility");
+    const appointmentForm = document.getElementById("whatsappAppointmentForm");
+    const eligibilityForm = document.getElementById("eligibilityForm");
+    const patientNameInput = document.getElementById("patientName");
+    const eligibilityNameInput = document.getElementById("eligibilityName");
+    const appointmentDateInput = document.getElementById("appointmentDate");
+    const brandHomeLink = document.querySelector(".brand");
+    const navLinks = document.querySelectorAll(".nav a");
+    const mobileSections = {
+      services: document.getElementById("services"),
+      robotics: document.getElementById("robotics"),
+      doctor: document.getElementById("doctor"),
+      insurance: document.getElementById("insurance")
+    };
+    const mobileQuery = window.matchMedia("(max-width: 720px)");
+    const whatsappNumber = "912312328111";
+
+    const setHeaderState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    };
+
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    const setMobileHome = () => {
+      document.body.classList.add("mobile-main");
+      document.body.classList.remove("mobile-section-open");
+      Object.values(mobileSections).forEach((section) => {
+        section.classList.remove("is-mobile-active");
+      });
+      navLinks.forEach((link) => {
+        link.classList.remove("is-active");
+      });
+      scrollToTop();
+    };
+
+    const openMobileSection = (sectionId) => {
+      const activeSection = mobileSections[sectionId];
+
+      if (!activeSection) {
+        return;
+      }
+
+      document.body.classList.remove("mobile-main");
+      document.body.classList.add("mobile-section-open");
+      Object.values(mobileSections).forEach((section) => {
+        section.classList.toggle("is-mobile-active", section === activeSection);
+      });
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${sectionId}`);
+      });
+      scrollToTop();
+    };
+
+    const syncMobilePages = () => {
+      if (mobileQuery.matches) {
+        if (!document.body.classList.contains("mobile-section-open")) {
+          setMobileHome();
+        }
+        return;
+      }
+
+      document.body.classList.remove("mobile-main", "mobile-section-open");
+      Object.values(mobileSections).forEach((section) => {
+        section.classList.remove("is-mobile-active");
+      });
+      navLinks.forEach((link) => {
+        link.classList.remove("is-active");
+      });
+    };
+
+    const openAppointmentModal = () => {
+      appointmentModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      patientNameInput.focus();
+    };
+
+    const closeAppointmentModal = () => {
+      appointmentModal.hidden = true;
+      document.body.style.overflow = "";
+    };
+
+    const openEligibilityModal = () => {
+      eligibilityModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      eligibilityNameInput.focus();
+    };
+
+    const closeEligibilityModal = () => {
+      eligibilityModal.hidden = true;
+      document.body.style.overflow = "";
+    };
+
+    const formatAppointmentDate = (dateValue) => {
+      if (!dateValue) return "";
+      const date = new Date(`${dateValue}T00:00:00`);
+      return date.toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+      });
+    };
+
+    const formatAppointmentTime = (timeValue) => {
+      if (!timeValue) return "";
+      const [hours, minutes] = timeValue.split(":");
+      const date = new Date();
+      date.setHours(Number(hours), Number(minutes));
+      return date.toLocaleTimeString("en-IN", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+      });
+    };
+
+    openAppointmentButtons.forEach((button) => {
+      button.addEventListener("click", openAppointmentModal);
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const sectionId = link.getAttribute("href").replace("#", "");
+
+        if (!mobileQuery.matches || !mobileSections[sectionId]) {
+          return;
+        }
+
+        event.preventDefault();
+        openMobileSection(sectionId);
+      });
+    });
+
+    brandHomeLink.addEventListener("click", (event) => {
+      if (!mobileQuery.matches) {
+        return;
+      }
+
+      event.preventDefault();
+      setMobileHome();
+    });
+
+    closeAppointmentButton.addEventListener("click", closeAppointmentModal);
+    openEligibilityButton.addEventListener("click", openEligibilityModal);
+    closeEligibilityButton.addEventListener("click", closeEligibilityModal);
+
+    appointmentModal.addEventListener("click", (event) => {
+      if (event.target === appointmentModal) {
+        closeAppointmentModal();
+      }
+    });
+
+    eligibilityModal.addEventListener("click", (event) => {
+      if (event.target === eligibilityModal) {
+        closeEligibilityModal();
+      }
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !appointmentModal.hidden) {
+        closeAppointmentModal();
+      }
+
+      if (event.key === "Escape" && !eligibilityModal.hidden) {
+        closeEligibilityModal();
+      }
+    });
+
+    appointmentForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(appointmentForm);
+      const name = String(formData.get("patientName")).trim();
+      const phone = String(formData.get("patientPhone")).trim();
+      const date = formatAppointmentDate(String(formData.get("appointmentDate")));
+      const time = formatAppointmentTime(String(formData.get("appointmentTime")));
+      const issue = String(formData.get("healthIssue")).trim();
+
+      const message = `Hello NorthStar Super Specialty Hospital,\n\nI would like to book an appointment.\n\nPatient Name: ${name}\nPhone Number: ${phone}\nPreferred Date: ${date}\nPreferred Time: ${time}\nHealth Issue: ${issue}\n\nPlease confirm the available slot and guide me with the next steps.\n\nThank you.`;
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappUrl, "_blank", "noopener");
+      closeAppointmentModal();
+    });
+
+    eligibilityForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(eligibilityForm);
+      const name = String(formData.get("eligibilityName")).trim();
+      const phone = String(formData.get("eligibilityPhone")).trim();
+      const scheme = String(formData.get("schemeType")).trim();
+      const cardNumber = String(formData.get("cardNumber")).trim() || "Not available / will share later";
+      const issue = String(formData.get("eligibilityIssue")).trim();
+
+      const message = `Hello NorthStar Super Specialty Hospital,\n\nI would like to check eligibility for MJPJAY / insurance support.\n\nPatient Name: ${name}\nPhone Number: ${phone}\nScheme / Insurance Type: ${scheme}\nCard / Policy Number: ${cardNumber}\nTreatment / Health Issue: ${issue}\n\nPlease confirm whether this treatment can be covered and let me know which documents are required.\n\nThank you.`;
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappUrl, "_blank", "noopener");
+      closeEligibilityModal();
+    });
+
+    setHeaderState();
+    syncMobilePages();
+    appointmentDateInput.min = new Date().toISOString().split("T")[0];
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+    mobileQuery.addEventListener("change", syncMobilePages);
+  </script>
+</body>
+</html>
+
